@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevDock · All-In-One Developer Utility Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="glow-bg"></div>
+
+  <header class="navbar">
+    <div class="brand">
+      <span class="logo">⚡</span>
+      <span class="name">DevDock</span>
+      <span class="version">Suite v1.2</span>
+    </div>
+    <div class="tabs" id="tool-tabs">
+      <button class="tab-btn active" data-tab="json">JSON Studio</button>
+      <button class="tab-btn" data-tab="jwt">JWT Inspector</button>
+      <button class="tab-btn" data-tab="base64">Base64 / URL</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- JSON Tab -->
+    <section id="tab-json" class="tool-pane active">
+      <div class="toolbar">
+        <h2>JSON Formatter & Validator</h2>
+        <div class="actions">
+          <button id="json-format" class="btn primary">Format (Beautify)</button>
+          <button id="json-minify" class="btn secondary">Minify</button>
+          <button id="json-sample" class="btn ghost">Sample</button>
+          <button id="json-copy" class="btn ghost">Copy</button>
+        </div>
+      </div>
+      <div class="editor-grid">
+        <textarea id="json-input" placeholder="Paste unformatted JSON here..." spellcheck="false"></textarea>
+        <pre id="json-output" class="output-pane">// Formatted JSON output appears here</pre>
+      </div>
+      <div id="json-status" class="status-bar ok">Ready</div>
+    </section>
+
+    <!-- JWT Tab -->
+    <section id="tab-jwt" class="tool-pane">
+      <div class="toolbar">
+        <h2>JSON Web Token Inspector</h2>
+        <div class="actions">
+          <button id="jwt-sample" class="btn ghost">Sample JWT</button>
+          <button id="jwt-copy" class="btn ghost">Copy Payload</button>
+        </div>
+      </div>
+      <div class="jwt-layout">
+        <div class="jwt-input-box">
+          <label>Encoded Token (header.payload.signature)</label>
+          <textarea id="jwt-input" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." spellcheck="false"></textarea>
+        </div>
+        <div class="jwt-decoded-grid">
+          <div class="box">
+            <h4>Header (Algorithm & Type)</h4>
+            <pre id="jwt-header">// Decoded header</pre>
+          </div>
+          <div class="box">
+            <h4>Payload (Claims & Data)</h4>
+            <pre id="jwt-payload">// Decoded payload</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Base64 Tab -->
+    <section id="tab-base64" class="tool-pane">
+      <div class="toolbar">
+        <h2>Base64 & URL Encoder / Decoder</h2>
+        <div class="actions">
+          <button id="b64-encode" class="btn primary">Base64 Encode</button>
+          <button id="b64-decode" class="btn secondary">Base64 Decode</button>
+          <button id="url-encode" class="btn ghost">URL Encode</button>
+          <button id="url-decode" class="btn ghost">URL Decode</button>
+        </div>
+      </div>
+      <div class="editor-grid">
+        <textarea id="b64-input" placeholder="Enter text to encode or decode..." spellcheck="false"></textarea>
+        <textarea id="b64-output" placeholder="Result output appears here..." readonly spellcheck="false"></textarea>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>DevDock Suite · Built by <a href="https://github.com/rushank3485" target="_blank">Rushank</a> · Open Source MIT</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
